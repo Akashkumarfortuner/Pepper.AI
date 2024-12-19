@@ -1,13 +1,17 @@
+import os
 import streamlit as st
 import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 
-# Load saved models and related objects
-age_model_path = r"C:\Users\HP\OneDrive\Desktop\final_pepper\models\age_prediction_model.pkl"
-yield_model_path = r"C:\Users\HP\OneDrive\Desktop\final_pepper\models\yield_prediction_model.pkl"
-scaler_path = r"C:\Users\HP\OneDrive\Desktop\final_pepper\models\scaler.pkl"
-encoder_path = r"C:\Users\HP\OneDrive\Desktop\final_pepper\models\label_encoder.pkl"
+# Get the current working directory where the app is running
+app_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Define relative paths to the models
+age_model_path = os.path.join(app_dir, 'models', 'age_prediction_model.pkl')
+yield_model_path = os.path.join(app_dir, 'models', 'yield_prediction_model.pkl')
+scaler_path = os.path.join(app_dir, 'models', 'scaler.pkl')
+encoder_path = os.path.join(app_dir, 'models', 'label_encoder.pkl')
 
 # Load models and utilities
 age_model = joblib.load(age_model_path)
